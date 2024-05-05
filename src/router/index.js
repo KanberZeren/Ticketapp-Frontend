@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import NewTicketView from '../views/NewTicketView.vue'
+import NotificationView from '../views/NotificationView.vue'
+import ItServiceSupportView from '../views/ItServiceSupportView.vue'
+import BackendSupportView from '../views/BackendSupportView.vue'
+import ServiceCenterView from '../views/ServiceCenterView.vue'
 
 const routes = [
   {
@@ -8,12 +13,29 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/NewTicket',
+    name: 'NewTicket',
+    component: NewTicketView
+  },
+  {
+    path: '/Notification',
+    name: 'Notification',
+    component: NotificationView
+  },
+  {
+    path: '/ItServiceSupport',
+    name: 'ItServiceSupport',
+    component: ItServiceSupportView
+  },
+  {
+    path: '/BackendSupport',
+    name: 'BackendSupport',
+    component: BackendSupportView
+  },
+  {
+    path: '/ServiceCenter',
+    name: 'ServiceCenter',
+    component: ServiceCenterView
   }
 ]
 
