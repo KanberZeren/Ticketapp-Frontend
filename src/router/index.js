@@ -6,6 +6,7 @@ import NotificationView from '../views/NotificationView.vue'
 import ItServiceSupportView from '../views/ItServiceSupportView.vue'
 import BackendSupportView from '../views/BackendSupportView.vue'
 import ServiceCenterView from '../views/ServiceCenterView.vue'
+import LoginPage from '@/components/LoginPage.vue'
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     name: 'TicketBearbeitenView',
     component: TicketBearbeitenView,
     props: true
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: LoginPage
   }
 ]
 

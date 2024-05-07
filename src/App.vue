@@ -1,18 +1,25 @@
 <template>
-  <navBar></navBar>
-  <router-view/>
+  <div id="app">
+    <router-view class="main-content"></router-view>
+    <!--<FooterBar></FooterBar>-->
+  </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
+// import NavBar from '@/components/NavBar.vue'
+// import FooterBar from '@/components/FooterBar.vue'
+
 export default {
-  name: 'App',
-  components: { NavBar }
+  name: 'App'
+  // components: { NavBar } // FooterBar
 }
 </script>
 
 <style>
 #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,5 +38,9 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.main-content{
+  flex: 1;
 }
 </style>
