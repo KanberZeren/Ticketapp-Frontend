@@ -1,46 +1,50 @@
 <template>
   <div class="registration-page">
-    <h1>Register as New Employee</h1>
+    <h1>Erstelle dein Account</h1>
     <form @submit.prevent="registerEmployee" class="registration-form">
       <div class="form-group">
-        <label for="vorname">First Name:</label>
+        <label for="vorname">Vorname:</label>
         <input v-model="vorname" type="text" class="form-control" required />
       </div>
 
       <div class="form-group">
-        <label for="nachname">Last Name:</label>
+        <label for="nachname">Nachname:</label>
         <input v-model="nachname" type="text" class="form-control" required />
       </div>
 
       <div class="form-group">
-        <label for="personalnummer">Employee ID:</label>
+        <label for="personalnummer">Personalnummer:</label>
         <input v-model="personalnummer" type="number" class="form-control" required />
       </div>
 
       <div class="form-group">
-        <label for="mailadresse">Email Address:</label>
+        <label for="mailadresse">Email-Adresse:</label>
         <input v-model="mailadresse" type="email" class="form-control" required />
       </div>
 
       <div class="form-group">
-        <label for="benutzername">Username:</label>
+        <label for="benutzername">Benutzername:</label>
         <input v-model="benutzername" type="text" class="form-control" required />
       </div>
 
       <div class="form-group">
-        <label for="passwort">Password:</label>
+        <label for="passwort">Passwort:</label>
         <input v-model="passwort" type="password" class="form-control" required />
       </div>
 
       <div class="form-group">
-        <label for="mitarbeiterBereich">Employee Area:</label>
+        <label for="mitarbeiterBereich">Mitarbeiterbereich:</label>
         <select v-model="mitarbeiterBereich" class="form-control" required>
           <option value="FACHLICHER_MITARBEITER">Fachlicher Mitarbeiter</option>
           <option value="IT_MITARBEITER">IT-Mitarbeiter</option>
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary">Register</button>
+      <button type="submit" class="btn btn-primary">Registrieren</button>
+      <div v-if="registrationSuccess" class="success-message">
+        <p>Registration successful! You can now proceed to the login page.</p>
+        <router-link to="/login" class="btn btn-success">Go to Login</router-link>
+      </div>
     </form>
   </div>
 </template>
@@ -55,6 +59,9 @@ const mailadresse = ref('')
 const benutzername = ref('')
 const passwort = ref('')
 const mitarbeiterBereich = ref('FACHLICHER_MITARBEITER') // default
+
+const registrationSuccess = ref(false)
+
 const registerEmployee = async () => {
   try {
     const response = await axios.post('http://localhost:8080/mitarbeiter', {
@@ -67,7 +74,7 @@ const registerEmployee = async () => {
       mitarbeiterBereich: mitarbeiterBereich.value
     })
     console.log('Employee registered:', response.data)
-    // Für später: redirect to SuccsessPage
+    registrationSuccess.value = true
   } catch (error) {
     console.error('Error registering employee:', error)
   }
