@@ -10,8 +10,8 @@
         <label for="password">Password:</label>
         <input type="password" v-model="password" required />
       </div>
-      <button @click="goToRegistrationPage" class="btn-link">hier Registrieren</button>
       <button type="submit" class="login-button">Login</button>
+      <button @click="goToRegistrationPage" class="btn-link">hier Registrieren</button>
     </form>
   </div>
 </template>

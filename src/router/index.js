@@ -13,8 +13,8 @@ import RegistrationPage from '@/components/RegistrationPage.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Login',
+    component: LoginPage
   },
   {
     path: '/NewTicket',
@@ -48,9 +48,9 @@ const routes = [
     props: true
   },
   {
-    path: '/Login',
-    name: 'Login',
-    component: LoginPage
+    path: '/home',
+    name: 'home',
+    component: HomeView
   },
   {
     path: '/ticket/:ticketnummer',

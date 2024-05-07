@@ -43,7 +43,7 @@
       <button type="submit" class="btn btn-primary">Registrieren</button>
       <div v-if="registrationSuccess" class="success-message">
         <p>Registration successful! You can now proceed to the login page.</p>
-        <router-link to="/login" class="btn btn-success">Go to Login</router-link>
+        <router-link to="/" class="btn btn-success">Go to Login</router-link>
       </div>
     </form>
   </div>
