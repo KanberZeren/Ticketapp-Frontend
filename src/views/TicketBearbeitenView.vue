@@ -1,6 +1,5 @@
 <template>
   <div class="TicketBearbeiten">
-    <h1>here comes the new ticket</h1>
     <TicketBearbeiten/>
   </div>
 </template>

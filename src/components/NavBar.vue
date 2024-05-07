@@ -1,6 +1,18 @@
 <script>
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  data () {
+    return {
+      searchQuery: ''
+    }
+  },
+  methods: {
+    searchTickets () {
+      if (this.searchQuery) {
+        this.$router.push({ name: 'TicketAnzeige', params: { ticketnummer: this.searchQuery } })
+      }
+    }
+  }
 }
 </script>
 <template>
@@ -44,9 +56,9 @@ export default {
             Create Ticket
           </router-link>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Search</button>
+        <form class="d-flex" @submit.prevent="searchTickets">
+          <input v-model="searchQuery" class="form-control me-2" type="search" placeholder="Ticketnummer" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Suchen</button>
         </form>
       </div>
     </div>

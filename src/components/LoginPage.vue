@@ -10,6 +10,7 @@
         <label for="password">Password:</label>
         <input type="password" v-model="password" required />
       </div>
+      <button @click="goToRegistrationPage" class="btn-link">hier Registrieren</button>
       <button type="submit" class="login-button">Login</button>
     </form>
   </div>
@@ -42,6 +43,9 @@ export default {
           console.error('Error during login:', error)
           alert('Invalid username or password')
         })
+    },
+    goToRegistrationPage () {
+      this.$router.push({ name: 'RegistrationPage' })
     }
   }
 }
@@ -56,16 +60,20 @@ export default {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .login-form {
   display: flex;
   flex-direction: column;
 }
+
 .form-group {
   margin-bottom: 15px;
 }
+
 label {
   font-weight: bold;
 }
+
 input {
   padding: 8px;
   width: 100%;
@@ -74,6 +82,7 @@ input {
   border-radius: 4px;
   margin-top: 5px;
 }
+
 button {
   padding: 10px;
   background-color: #4caf50;
@@ -83,7 +92,13 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
+
 button:hover {
   background-color: #45a049;
+}
+
+.btn-link{
+  background-color: white;
+  color: #2382d6;
 }
 </style>

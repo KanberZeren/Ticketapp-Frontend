@@ -7,6 +7,8 @@ import ItServiceSupportView from '../views/ItServiceSupportView.vue'
 import BackendSupportView from '../views/BackendSupportView.vue'
 import ServiceCenterView from '../views/ServiceCenterView.vue'
 import LoginPage from '@/components/LoginPage.vue'
+import TicketAnzeige from '@/components/TicketAnzeige.vue'
+import RegistrationPage from '@/components/RegistrationPage.vue'
 
 const routes = [
   {
@@ -49,6 +51,17 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: LoginPage
+  },
+  {
+    path: '/ticket/:ticketnummer',
+    name: 'TicketAnzeige',
+    component: TicketAnzeige,
+    props: true
+  },
+  {
+    path: '/RegistrationPage',
+    name: 'RegistrationPage',
+    component: RegistrationPage
   }
 ]
 
