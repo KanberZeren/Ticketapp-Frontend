@@ -15,31 +15,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'TicketAnzeige',
   data () {
     return {
-      ticket: null
+      tickets: [],
+      searchTerm: ''
     }
   },
   created () {
     this.loadTicket()
   },
-  watch: {
-    '$route.params.ticketnummer': 'loadTicket'
-  },
   methods: {
     async loadTicket () {
-      const ticketnummer = this.$route.params.ticketnummer
+      const ticketnummer = this.$route.query.ticketnummer
       try {
-        if (!this.$service) {
-          console.error('Service nicht korrekt initialisiert.')
-          return
-        }
-        this.ticket = await this.$service.getTicketByTicketnummer(ticketnummer)
-        if (!this.ticket) {
-          console.warn('Ticket nicht gefunden:', ticketnummer)
-        }
+        const response = await axios.get(`http://localhost:8080/ticket/${ticketnummer}`)
+        this.ticket = response.data
       } catch (error) {
         console.error('Fehler beim Laden des Tickets:', error)
         this.ticket = null

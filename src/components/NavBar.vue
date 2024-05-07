@@ -34,13 +34,6 @@ export default {
               </svg>
             </router-link>
           </li>
-          <li class="nav-link">
-            <router-link class="avatar navbar-link active" ria-current="page" to="/login">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-              </svg>
-            </router-link>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Contacts
@@ -56,10 +49,13 @@ export default {
             Create Ticket
           </router-link>
         </ul>
-        <form class="d-flex" @submit.prevent="searchTickets">
-          <input v-model="searchQuery" class="form-control me-2" type="search" placeholder="Ticketnummer" aria-label="Search">
-          <button class="btn btn-outline-light" type="submit">Suchen</button>
-        </form>
+        <li class="d-flex nav-link">
+          <router-link class="avatar navbar-link active" ria-current="page" to="/login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+          </router-link>
+        </li>
       </div>
     </div>
   </nav>

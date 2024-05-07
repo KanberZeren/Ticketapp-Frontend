@@ -121,16 +121,11 @@ export default {
       this.$router.push({ name: 'NewTicket' })
     },
     async searchTicket () {
-      if (this.searchTerm) {
-        try {
-          const response = await ticketService.getTicketByTicketnummer(this.searchTerm)
-          const searchedTickets = response.data ? [response.data] : []
-
-          this.tickets = searchedTickets
-          this.currentFilter = 'all'
-        } catch (error) {
-          console.error('Fehler beim Suchen des Tickets:', error)
-        }
+      try {
+        const response = await ticketService.getTicketByTicketnummer(this.searchTerm)
+        this.tickets = response.data ? [response.data] : []
+      } catch (error) {
+        console.error('Fehler beim Suchen des Tickets:', error)
       }
     }
   }
