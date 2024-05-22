@@ -1,50 +1,47 @@
 <template>
-  <div class="NewTicket">
+  <div class="new-ticket-container">
     <h1>Create New Ticket</h1>
-    <form @submit.prevent="saveTicket">
-      <label for="betreff">Betreff:</label>
-      <input v-model="betreff" type="text" required />
-
-      <label for="nachricht">Nachricht:</label>
-      <textarea v-model="nachricht" required></textarea>
-
-      <label for="status">Status:</label>
-      <select v-model="status" required>
-        <option value="OFFEN">Offen</option>
-        <option value="GELÖST">Gelöst</option>
-        <option value="WARTEND">Wartend</option>
-        <option value="IN_BEARBEITUNG">in Bearbeitung</option>
-      </select>
-
-      <!-- Display the created at time after saving a new ticket -->
-      <div v-if="erstelltAm">
-        <label>Erstellt am:</label>
-        <span>{{ erstelltAm }}</span>
+    <form @submit.prevent="saveTicket" class="ticket-form">
+      <div class="form-group">
+        <label for="betreff">Betreff:</label>
+        <input v-model="betreff" type="text" required class="form-control" />
       </div>
 
-      <button type="submit">Speichern</button>
+      <div class="form-group">
+        <label for="nachricht">Nachricht:</label>
+        <textarea v-model="nachricht" required class="form-control"></textarea>
+      </div>
+
+      <!-- Display the created time after saving a new ticket -->
+      <div v-if="erstelltAm" class="form-group">
+        <label>Erstellt am:</label>
+        <span class="created-at">{{ erstelltAm }}</span>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Speichern</button>
     </form>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
   data () {
     return {
       betreff: '',
       nachricht: '',
-      status: 'Offen', // default set "Offen" da Ticket neu erstell und somit noch nicht bearbeitet sein kann
+      status: 'Offen',
       erstelltAm: null
     }
   },
   methods: {
     async saveTicket () {
       try {
-        const response = await axios.post('http://localhost:8080/ticket', {
+        const response = await axios.post('https://ticketapp-backend-yhar.onrender.com/ticket', {
           betreff: this.betreff,
           nachricht: this.nachricht,
-          status: this.status
+          status: 'OFFEN'
         })
         console.log('Ticket created:', response.data)
         this.erstelltAm = response.data.erstelltAm
@@ -57,4 +54,44 @@ export default {
 </script>
 
 <style scoped>
+.new-ticket-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.ticket-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.created-at {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-control:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+}
 </style>

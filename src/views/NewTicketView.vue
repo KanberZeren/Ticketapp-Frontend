@@ -1,17 +1,16 @@
 <template>
   <div class="NewTicket">
-    <h1>here comes the new ticket</h1>
-    <NewTicket/>
+    <NewTicket style="margin-top: 20px"/>
   </div>
 </template>
 
 <script>
 import NewTicket from '@/components/NewTicket.vue'
+
 export default {
   name: 'NewTicketView',
   components: {
     NewTicket
   }
 }
-
 </script>

@@ -64,7 +64,7 @@ const registrationSuccess = ref(false)
 
 const registerEmployee = async () => {
   try {
-    const response = await axios.post('http://localhost:8080/mitarbeiter', {
+    const response = await axios.post('https://ticketapp-backend-yhar.onrender.com/mitarbeiter', {
       vorname: vorname.value,
       nachname: nachname.value,
       personalnummer: personalnummer.value,

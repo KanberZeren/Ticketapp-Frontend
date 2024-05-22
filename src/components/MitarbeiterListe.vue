@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     fetchEmployeeData () {
-      axios.get('http://localhost:8080/mitarbeiter')
+      axios.get('https://ticketapp-backend-yhar.onrender.com/mitarbeiter')
         .then(response => {
           this.employeeList = response.data
         })
