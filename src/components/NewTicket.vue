@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { BASE_PATH } from './config'
+import { BASE_PATH } from '@/config'
 import axios from 'axios'
 
 export default {

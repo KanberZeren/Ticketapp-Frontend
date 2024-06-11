@@ -1,7 +1,6 @@
 <script>
 import axios from 'axios'
-import { BASE_PATH } from './config'
-
+import { BASE_PATH } from '@/config'
 export default {
   getAllTickets () {
     return axios.get(`${BASE_PATH}/tickets`)

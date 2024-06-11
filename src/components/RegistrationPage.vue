@@ -52,7 +52,7 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
-import { BASE_PATH } from './config'
+import { BASE_PATH } from '@/config'
 const vorname = ref('')
 const nachname = ref('')
 const personalnummer = ref(0)
