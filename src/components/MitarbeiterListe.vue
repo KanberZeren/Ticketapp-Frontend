@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { BASE_PATH } from './config'
 import axios from 'axios'
 
 export default {
@@ -23,7 +24,7 @@ export default {
   },
   methods: {
     fetchEmployeeData () {
-      axios.get('https://ticketapp-backend-yhar.onrender.com/mitarbeiter')
+      axios.get(`${BASE_PATH}/mitarbeiter`)
         .then(response => {
           this.employeeList = response.data
         })

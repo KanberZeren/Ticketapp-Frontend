@@ -52,6 +52,7 @@
 <script setup>
 import { ref } from 'vue'
 import axios from 'axios'
+import { BASE_PATH } from './config'
 const vorname = ref('')
 const nachname = ref('')
 const personalnummer = ref(0)
@@ -64,7 +65,7 @@ const registrationSuccess = ref(false)
 
 const registerEmployee = async () => {
   try {
-    const response = await axios.post('https://ticketapp-backend-yhar.onrender.com/mitarbeiter', {
+    const response = await axios.post(`${BASE_PATH}/mitarbeiter`, {
       vorname: vorname.value,
       nachname: nachname.value,
       personalnummer: personalnummer.value,

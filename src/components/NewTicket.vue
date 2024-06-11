@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { BASE_PATH } from './config'
 import axios from 'axios'
 
 export default {
@@ -38,7 +39,7 @@ export default {
   methods: {
     async saveTicket () {
       try {
-        const response = await axios.post('https://ticketapp-backend-yhar.onrender.com/ticket', {
+        const response = await axios.post(`${BASE_PATH}/ticket`, {
           betreff: this.betreff,
           nachricht: this.nachricht,
           status: 'OFFEN'

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { BASE_PATH } from './config'
 import axios from 'axios'
 export default {
   name: 'TicketAnzeige',
@@ -31,7 +32,7 @@ export default {
     async loadTicket () {
       const ticketnummer = this.$route.query.ticketnummer
       try {
-        const response = await axios.get(`https://ticketapp-backend-yhar.onrender.com/ticket/${ticketnummer}`)
+        const response = await axios.get(`${BASE_PATH}/ticket/${ticketnummer}`)
         this.ticket = response.data
       } catch (error) {
         console.error('Fehler beim Laden des Tickets:', error)

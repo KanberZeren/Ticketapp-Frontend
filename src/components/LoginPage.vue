@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { BASE_PATH } from './config'
 import axios from 'axios'
 export default {
   data () {
@@ -31,7 +32,7 @@ export default {
         benutzername: this.username,
         passwort: this.password
       }
-      axios.post('https://ticketapp-backend-yhar.onrender.com/login', credentials)
+      axios.post(`${BASE_PATH}/login`, credentials)
         .then(response => {
           if (response.status === 200 && response.data === 'Login successful') {
             this.$router.push({ name: 'home' })
