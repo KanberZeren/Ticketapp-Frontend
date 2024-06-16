@@ -27,7 +27,7 @@
               <p class="mb-4" ><strong>Betreff:</strong> {{ ticket.betreff }}</p>
               <p class="mb-4" ><strong>Nachricht:</strong> {{ ticket.nachricht }}</p>
               <p class="mb-4" ><strong>Status:</strong> {{ ticket.status }}</p>
-              <p class="mb-4" ><strong>Erstellt am:</strong> {{ ticket.erstelltAm }}</p>
+              <p class="mb-4" ><strong>Erstellt am:</strong> {{ formatDate(ticket.erstelltAm) }}</p>
             </div>
           </div>
         </div>
@@ -62,6 +62,10 @@ export default {
         console.error('Error creating ticket:', error)
         this.ticket = null
       }
+    },
+    formatDate (date) {
+      const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }
+      return new Date(date).toLocaleDateString('de-DE', options)
     }
   }
 }
