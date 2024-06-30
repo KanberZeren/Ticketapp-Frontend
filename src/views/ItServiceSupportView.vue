@@ -13,7 +13,7 @@
       </div>
 
       <div class="support-forms">
-        <div class="form-section">
+        <!--div class="form-section">
           <h2 class="section-title">Kontaktieren Sie uns</h2>
           <form class="contact-form" @submit.prevent="contactSupport">
             <div class="form-field">
@@ -31,7 +31,7 @@
           </form>
           <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
           <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-        </div>
+        </div-->
 
         <div class="info-section">
           <div class="info-item">
@@ -51,14 +51,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import axios from 'axios'
-import { BASE_PATH } from '@/config'
-
-const name = ref('')
-const email = ref('')
-const message = ref('')
-const successMessage = ref('')
-const errorMessage = ref('')
 
 const faqs = ref([
   {
@@ -80,24 +72,6 @@ const faqs = ref([
 
 const toggleAnswer = (index) => {
   faqs.value[index].expanded = !faqs.value[index].expanded
-}
-
-const contactSupport = async () => {
-  successMessage.value = ''
-  errorMessage.value = ''
-  try {
-    const response = await axios.post(`${BASE_PATH}/contact`, {
-      name: name.value,
-      email: email.value,
-      message: message.value
-    })
-    successMessage.value = 'Ihre Nachricht wurde erfolgreich gesendet!'
-    // Hier könntest du weiterhin mit der response arbeiten, wenn benötigt
-    console.log('Nachricht gesendet:', response.data)
-  } catch (error) {
-    errorMessage.value = 'Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.'
-    console.error('Fehler beim Senden der Nachricht:', error)
-  }
 }
 </script>
 
