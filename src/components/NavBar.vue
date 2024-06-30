@@ -1,3 +1,25 @@
+<template>
+  <nav class="navbar">
+    <div class="icon">
+      <router-link class="logo" to="/home">Tiqetta</router-link>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><router-link to="/home">HOME</router-link></li>
+        <li><router-link to="/ItServiceSupport">IT SUPPORT</router-link></li>
+        <li><router-link to="/ServiceCenter">SERVICE CENTER</router-link></li>
+      </ul>
+    </div>
+    <div class="profile">
+      <router-link class="avatar" to="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </router-link>
+    </div>
+  </nav>
+</template>
+
 <script>
 export default {
   name: 'NavBar',
@@ -15,65 +37,124 @@ export default {
   }
 }
 </script>
-<template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg">
-    <div class="container-fluid">
-      <router-link class="navbar-brand" to="/home">
-        <img src="@/assets/logo.png" alt="Tiqetta" class="logo" to="/">
-      </router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="a--bs-scroll-height: 100px;">
-          <li class="nav-item">
-            <router-link class="nav-link active" aria-current="page" to="/home">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"/>
-                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z"/>
-              </svg>
-            </router-link>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Contacts
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><router-link class="dropdown dropdown-item" to="/ItServiceSupport">IT-Service-Support</router-link></li>
-              <li><router-link class="dropdown dropdown-item" to="/BackendSupport">Backend-Support</router-link></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><router-link class="dropdown dropdown-item" to="/ServiceCenter">Service-Center</router-link></li>
-            </ul>
-          </li>
-        </ul>
-        <li class="d-flex nav-link">
-          <router-link class="avatar navbar-link active" ria-current="page" to="/">            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="40" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-            </svg>
-          </router-link>
-        </li>
-      </div>
-    </div>
-  </nav>
-</template>
+
 <style scoped>
-.logo{
-  width: 138px;
-  height: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #ccc
 }
-.nav-link{
-  font-size: 20px;
+
+.navbar {
+  width: 1200px;
+  height: 75px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.bg{
-  background-color: #2c3e50;
+
+.icon {
+  display: flex;
+  align-items: center;
 }
-.dropdown{
-  color: #2382d6;
+
+.logo {
+  color: #e8716d;
+  font-size: 35px;
+  font-family: Arial;
+  padding-left: 20px;
+  text-decoration: none;
 }
-.nav-link.active {
-  color: #2382d6;
+
+.menu {
+  display: flex;
 }
-.avatar{
-  color: white;
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu ul li {
+  list-style: none;
+  margin-left: 62px;
+  font-size: 14px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-family: Arial;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+
+.menu ul li a:hover {
+  color: #e8716d;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.srch {
+  font-family: 'Times New Roman';
+  width: 200px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #e8716d;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  border-right: none;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  background: #e8716d;
+  border: 2px solid #e8716d;
+  color: #fff;
+  font-size: 15px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #000;
+}
+
+.btn:focus,
+.srch:focus {
+  outline: none;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.avatar {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease;
+}
+
+.avatar svg {
+  fill: #e8716d;
+}
+
+.avatar:hover svg {
+  fill: #fff;
 }
 </style>

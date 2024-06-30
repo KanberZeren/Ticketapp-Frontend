@@ -1,6 +1,6 @@
 <template>
   <div class="ticket-edit">
-    <h1>Ticket bearbeiten</h1>
+    <h1 class="text-center mb-4">Ticket bearbeiten</h1>
     <form @submit.prevent="submitForm" class="ticket-form">
       <div class="form-group">
         <label for="betreff">Betreff:</label>
@@ -9,12 +9,12 @@
 
       <div class="form-group">
         <label for="nachricht">Nachricht:</label>
-        <textarea v-model="editedTicket.nachricht" class="form-control" required></textarea>
+        <textarea v-model="editedTicket.nachricht" class="form-control" rows="6" required></textarea>
       </div>
 
       <div class="form-group">
         <label for="kommentar">Kommentar:</label>
-        <textarea v-model="editedTicket.kommentar" class="form-control" required></textarea>
+        <textarea v-model="editedTicket.kommentar" class="form-control" rows="6" required></textarea>
       </div>
 
       <div class="form-group">
@@ -28,7 +28,7 @@
       </div>
 
       <button type="submit" class="btn btn-primary">Speichern</button>
-      <div v-if="saveSuccess" class="success-message">
+      <div v-if="saveSuccess" class="alert alert-success mt-3">
         Ihr Ticket wurde erfolgreich gespeichert!
       </div>
     </form>
@@ -37,6 +37,7 @@
 
 <script>
 import ticketService from '@/router/ticketService'
+
 export default {
   data () {
     return {
@@ -77,33 +78,59 @@ export default {
 
 <style scoped>
 .ticket-edit {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
   padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Übernahme aus body */
 }
 
 .ticket-form {
-  display: flex;
-  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .form-control {
   width: 100%;
-  padding: 8px;
+  padding: 12px;
   font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #f8f9fa;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #e8716d;
   color: #fff;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 18px;
+}
+
+.btn-primary:hover {
+  background-color: #e4554f;
+}
+
+.alert {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+  padding: 10px;
   border-radius: 4px;
+}
+
+h1{
+  color: #e8716d;
 }
 </style>

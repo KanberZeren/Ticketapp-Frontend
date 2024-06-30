@@ -1,6 +1,6 @@
 <template>
-  <div class="ServiceCenter">
-    <h1>Willkommen in unserem Service-Center</h1>
+  <div class="container">
+    <h1 class="text-center mt-4 mb-4">Willkommen in unserem Service-Center</h1>
 
     <section class="services">
       <div class="service-card">
@@ -22,29 +22,41 @@
 </template>
 
 <style scoped>
-.ServiceCenter {
+body {
+  background-color: #f0f8ff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
   padding: 20px;
   text-align: center;
-  background: #96c1e2;
+  background: #b5b5b5;
 }
+
 .services {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 30px;
 }
+
 .service-card {
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 20px;
   margin: 10px;
   width: 300px;
+  text-align: left;
 }
+
 .service-card h2 {
-  color: #007bff;
+  color: #e8716d;
 }
+
 .service-card p {
-  color: #6c757d;
+  color: #6c757d; /* Farbe für Text anpassen */
 }
 </style>

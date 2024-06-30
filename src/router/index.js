@@ -2,13 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import NewTicketView from '../views/NewTicketView.vue'
 import TicketBearbeitenView from '@/views/TicketBearbeitenView.vue'
-import NotificationView from '../views/NotificationView.vue'
 import ItServiceSupportView from '../views/ItServiceSupportView.vue'
 import BackendSupportView from '../views/BackendSupportView.vue'
 import ServiceCenterView from '../views/ServiceCenterView.vue'
 import LoginPage from '@/components/LoginPage.vue'
 import TicketAnzeige from '@/components/TicketAnzeige.vue'
-import RegistrationPage from '@/components/RegistrationPage.vue'
 
 const routes = [
   {
@@ -20,11 +18,6 @@ const routes = [
     path: '/NewTicket',
     name: 'NewTicket',
     component: NewTicketView
-  },
-  {
-    path: '/Notification',
-    name: 'Notification',
-    component: NotificationView
   },
   {
     path: '/ItServiceSupport',
@@ -57,11 +50,6 @@ const routes = [
     name: 'TicketAnzeige',
     component: TicketAnzeige,
     props: true
-  },
-  {
-    path: '/RegistrationPage',
-    name: 'RegistrationPage',
-    component: RegistrationPage
   }
 ]
 

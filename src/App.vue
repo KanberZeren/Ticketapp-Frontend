@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
+    <!-- Überprüfung des aktuellen Pfads -->
+    <NavBar v-if="!isRootPath"></NavBar>
     <router-view class="main-content"></router-view>
     <!--<FooterBar></FooterBar>-->
+    <FooterBar class="footer"/>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue'
-// import FooterBar from '@/components/FooterBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
 
 export default {
   name: 'App',
-  components: { NavBar } // FooterBar
+  components: { FooterBar, NavBar },
+  computed: {
+    isRootPath () {
+      return this.$route.path === '/'
+    }
+  }
 }
 </script>
 
@@ -26,6 +33,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #ccc;
 }
 
 nav {
@@ -41,7 +49,7 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-.main-content{
+.main-content {
   flex: 1;
 }
 </style>

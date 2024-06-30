@@ -2,26 +2,26 @@
   <div id="app">
     <div class="home">
       <router-view></router-view>
-      <HomePage msg="Welcome to our Ticketsystem!"/>
+      <!--HomePage msg="Welcome to our Ticketsystem!"/-->
       <TicketListe/>
-      <FooterBar/>
+      <!--FooterBar class="footer"/-->
     </div>
   </div>
 </template>
 
 <script>
 
-import HomePage from '@/components/HomePage.vue'
+// import HomePage from '@/components/HomePage.vue'
 // import axios from 'axios'
 import TicketListe from '@/components/TicketListe.vue'
 // import NavBar from '@/components/NavBar.vue'
-import FooterBar from '@/components/FooterBar.vue'
+// import FooterBar from '@/components/FooterBar.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    FooterBar,
-    HomePage,
+    // FooterBar,
+    // HomePage
     TicketListe
   },
   methods: {
