@@ -139,9 +139,11 @@ export default {
 .ticket-container {
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
-  margin: auto;
+  max-width: 2000px;
   padding: 20px;
+  margin: auto;
+  margin-left: 20px;
+  margin-right: 20px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
